@@ -1,0 +1,260 @@
+/* boilerplate reset */
+* {
+  box-sizing: border-box;
+}
+
+
+/* MAIN */
+
+.layout {
+  display: flex;
+  height: 100vh;      /* full viewport height */
+}
+
+.layout nav {
+  width: 10vw;        /*  sidebar wih */
+}
+
+.layout main {
+  flex: 1;            /* take the rest */
+  overflow: auto;     /* scroll if content is taller */
+}
+/*TEXT*/
+
+header {
+  /*to put owl next to text*/
+  display: flex; 
+
+  /*vert align!*/
+  align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #3B9C9C; 
+  font-family: Garamond, serif,;
+  font-weight: bold;
+  font-size: 3vw;
+
+  margin: 2vw 15vw;
+}
+
+
+h1{
+   margin: 0;
+}
+
+p {
+  color: #5A5A5A;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.5vw;
+
+  margin: 1vw 15vw;
+}
+
+/*links*/
+
+a {
+  color: #3B9C9C;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #E85F5F;
+  text-decoration: none;
+}
+
+
+/* NAV */
+
+nav {
+  /*image and gradient*/
+  background-image:
+  linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+  url("attachments/background.png"); 
+
+
+  /* tiling and sizing */
+  background-size: 200px;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  /*nav height width*/
+  height: 100vh;
+  width: 15vw;
+}
+
+
+nav ul {
+  /*center nav*/
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+
+  height: 100%;              /* fill the nav height */
+  padding: 0;                /* remove default list padding */
+  margin: 0;                 /* remove default list margin */
+
+  list-style: none;
+}
+
+nav li {
+  text-decoration: none;
+  margin: 4vw;
+}
+
+nav a {
+  color: #5A5A5A;
+  text-decoration: none;
+  font-size: 2vw;
+}
+
+
+/*ART gallery and any images/videos */
+
+#owl {
+ width: 5vw;
+ min-width: 70px;
+ height: auto;
+
+ margin: 1vw 2vw;
+}
+
+
+/*gallery (art page)*/
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100vw;
+
+  flex-direction: row;
+}
+
+.gallery img {
+  width: 15vw;
+  margin: 1vw;
+
+}
+
+
+
+
+.container {
+
+  display: flex;
+  flex-direction: row;
+  max-width: 60vw;
+  align-items: flex-start;
+  gap: 2vw;        /* space between img and p */
+  margin: 5vh auto;
+}
+
+.container img {
+  /*sizing*/
+  width: 12vw;
+
+  /*pres aspect ratio*/
+  height: auto; 
+}
+
+.container video {
+  width: 30vw;
+  height: auto; 
+
+}
+
+.container p {
+    margin: 2vw 5vw;
+}
+
+/*FOOTER*/
+
+footer {
+    /*image and gradient*/
+  background-image:
+  linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), /* semi-transparent overlay */
+  url("attachments/background.png"); 
+
+
+  /* tiling and sizing */
+  background-size: 200px;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  /*footer height*/
+  height: 10vh;
+}
+
+
+
+/* media queries */
+
+@media (max-width: 750px) {
+  /* mobile */
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    /*image and gradient*/
+    background-image:
+    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    url("attachments/background.png"); 
+
+
+    /* tiling and sizing */
+    background-size: 200px;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+
+    /*nav height*/
+    height: 75px;
+    width: 100vw;
+  }
+
+  nav ul {
+    /*center nav*/
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;
+  }
+
+  nav li {
+    display: inline;
+    text-decoration: none;
+    margin: 20px;
+
+  }
+
+
+.layout {
+  display: block;
+  height: 20vh;      /* full viewport height */
+}
+
+.layout nav {
+  width: 100vw;        /* fixed 30% sidebar */
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100vw;
+
+  flex-direction: row;
+}
+
+.gallery img {
+  width: 20vw;
+  margin: 1vw;
+
+}
+
+  }
