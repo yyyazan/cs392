@@ -1,4 +1,4 @@
-/* ------------ mini-calculator logic ------------ */
+// calc
 
 function readVals() {
   const a = Number(document.getElementById('num1').value);
@@ -9,7 +9,8 @@ function readVals() {
 function display(res) {
   const out = document.getElementById('output');
   out.innerHTML = String(res);
-  /* highlight negatives */
+
+// colour negatives
   const red = res < 0;
   out.style.color = red ? 'red' : '';
 }
@@ -24,7 +25,7 @@ function calc(op) {
   display(r);
 }
 
-/* power: a^b using a for-loop */
+/* power*/
 function power() {
   const [a, b] = readVals();
   let result = 1;
