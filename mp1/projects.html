@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="style.css">
 
+
+
 </head>
 
 <body>
@@ -24,16 +26,16 @@
 <div class="layout">
 
   <!-- nav -->
-    <nav>
-      <ul>
-       <li> <a href="./index.html">about</a> </li>
-       <li> <a href="./education.html">education</a> </li>
-       <li> <a href="./projects.html">projects</a> </li>
-       <li> <a href="./art.html">art</a> </li>
-       <li> <a href="./index.html">?</a> </li>
-       <li> <a href="./index.html">?</a> </li>
-      </ul>
-    </nav>
+  <nav>
+    <ul>
+     <li> <a href="./index.html">about</a> </li>
+     <li> <a href="./education.html">education</a> </li>
+     <li> <a href="./projects.html">projects</a> </li>
+     <li> <a href="./art.html">art</a> </li>
+     <li> <a href="./experience.html">experience</a> </li>
+     <li> <a href="./skills.html">skills</a> </li>
+   </ul>
+ </nav>
 
 
 
@@ -63,9 +65,40 @@
 
 
 
-      <h2>fragile calculator</h2>
-      <p>use carefully, might break..<p>
-   
+    
+      
+<!-- CALCULATOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<section id="calculator">
+  <div class="calc-panel">
+    <h2 class="calc-title">boring calculator</h2>
+    <p class="calc-title" style="color: grey; font-size: calc(10px + 0.5vw);">
+  does absolutely nothing extraordinary
+</p>
+    <!-- inputs -->
+    <div class="calc-inputs">
+      <input id="num1" type="number" />
+      <input id="num2" type="number" />
+    </div>
+
+    <!-- buttons -->
+    <div class="calc-buttons">
+      <button onclick="calc('+')">+</button>
+      <button onclick="calc('-')">−</button>
+      <button onclick="calc('*')">×</button>
+      <button onclick="calc('/')">÷</button>
+      <button onclick="power()">^</button>
+      <button onclick="clearCalc()">Clear</button>
+    </div>
+
+    <!-- output -->
+    <h3 id="output" class="calc-output"></h3>
+  </div>
+</section>
+
+
+
+
+
 
         
       <br><br><br><br><br>
@@ -90,5 +123,8 @@
     <!-- TA advised to ignore credits page on instruction PDF -->
   </footer>
 </body>
+
+<!-- source js after body so everything loads -->
+<script src="calculator.js"></script>
 
 </html>
