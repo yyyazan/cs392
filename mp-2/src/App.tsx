@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+import { useEffect, useState } from "react";
+import Game from "./components/Game.tsx";
+import {UseAlbums, type Entry } from "./components/UseAlbums";   // ← capitalized
 
-function App() {
-  const [count, setCount] = useState(0)
+const Page = styled.div`
+    width: 100vw;
+    min-height: 100vh;
+    background: #f3e9e5;
+`;
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+    const [entries, setEntries] = useState<Entry[] | null>(null);
+    const [error, setError]     = useState<string | null>(null);
+
+    // fetching
+    useEffect(() => {
+        async function fetchFeed() {
+            try {
+                const res  = await fetch(
+                    "https://itunes.apple.com/us/rss/topalbums/limit=100/json"
+                );
+                const json = await res.json();
+                setEntries(json.feed.entry as Entry[]);
+            } catch (err) {
+                setError("Could not load albums");
+                console.error(err);
+            }
+        }
+        fetchFeed();
+    }, []);
+
+    // mapping
+    const albums = UseAlbums(entries);
+
+    if (error)          return <Page>{error}</Page>;
+    if (!entries)       return <Page>Loading…</Page>;
+    if (albums.length < 4) return <Page>No albums returned</Page>;
+
+    return (
+        <Page>
+            <Game data={albums} />
+        </Page>
+    );
 }
-
-export default App

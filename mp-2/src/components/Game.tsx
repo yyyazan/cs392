@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Album } from '../interfaces/Albums';
+import type { Album } from '../interfaces/Albums';
 
 interface GameProps {
     data: Album[];
