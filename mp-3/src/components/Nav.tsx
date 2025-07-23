@@ -59,7 +59,7 @@ export default function Nav() {
         <StyledNav>
             <StyledList>
                 <StyledItem>
-                    <StyledLink to="/home">about</StyledLink>
+                    <StyledLink to="/">about</StyledLink>
                 </StyledItem>
                 <StyledItem>
                     <StyledLink to="/education">education</StyledLink>
