@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const StyledH1 = styled.h1`
@@ -46,7 +47,10 @@ export default function Home() {
       <>
         <StyledH1>song generator</StyledH1>
         <StyledP>♪ create a song line by line ♫</StyledP>
-        <StyledButton>let's go !</StyledButton>
+
+          <Link href="/generate">
+              <StyledButton>let's go</StyledButton>
+          </Link>
       </>
 
   );
