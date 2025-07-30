@@ -14,6 +14,8 @@ padding: 15px;
 margin: 10px 0;
 min-height: 60px;
 background-color: #f0f2d0;
+
+color: grey;
 `;
 
 const StyledInput = styled.input`
@@ -22,6 +24,8 @@ padding: 10px;
 border: 2px dashed deeppink;
 border-radius: 8px;
 font-family: "Boldonse", system-ui;
+
+color: grey;    
 `;
 
 const SuggestionButton = styled.button`
@@ -34,9 +38,7 @@ const SuggestionButton = styled.button`
    font-family: "Boldonse", system-ui;
    cursor: pointer;
    
-   &:hover {
-       background-color: #e9725c;
-   }
+   &:hover { background-color: #e9725c; }
 `;
 
 const NextButton = styled.button`
@@ -48,17 +50,24 @@ const NextButton = styled.button`
    margin: 20px 0;
    font-family: "Boldonse", system-ui;
    cursor: pointer;
+
+    &:hover { background-color: #e9725c; }
 `;
 
 const SearchButton = styled.button`
-   background-color: deeppink;
-   color: white;
-   border: none;
-   border-radius: 8px;
-   padding: 10px 20px;
-   margin: 10px 0;
-   font-family: "Boldonse", system-ui;
-   cursor: pointer;
+    background-color: deeppink;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    display: block;
+    font-family: "Boldonse", system-ui;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #dc0079;
+    }
 `;
 
 export default function Generate() {
@@ -108,13 +117,13 @@ export default function Generate() {
             <h2>Line {currentLine} of 4</h2>
 
             <StyledInput
-                placeholder="enter a word♪♫♪♫♪♫♪♫♪♫♪♫♪♫♪♫♪♫♪♫"
+                placeholder="enter a word ♪♫♪♫♪♫♪♫♪♫♪♫♪♫♪♫♪♫♪♫"
                 value={userWord}
                 onChange={(e) => setUserWord(e.target.value)}
             />
 
             <SearchButton onClick={fetchSuggestions} disabled={loading}>
-                {loading ? 'Searching...' : 'Get Song Suggestions'}
+                {loading ? 'Searching...' : 'get titles'}
             </SearchButton>
 
             {suggestions.length > 0 && (
@@ -124,9 +133,7 @@ export default function Generate() {
                         <SuggestionButton
                             key={index}
                             onClick={() => handleLineSelect(suggestion)}
-                            style={{
-                                backgroundColor: selectedLine === suggestion ? '#f0bbbb' : 'lightcoral'
-                            }}
+                            style={selectedLine === suggestion ? { backgroundColor: '#f0bbbb' } : {}}
                         >
                             {suggestion}
                         </SuggestionButton>
@@ -142,10 +149,10 @@ export default function Generate() {
 
             <div>
                 <h3>Your Song:</h3>
-                <LyricBox>Line 1: {completedLines[0] || '[Empty]'}</LyricBox>
-                <LyricBox>Line 2: {completedLines[1] || '[Empty]'}</LyricBox>
-                <LyricBox>Line 3: {completedLines[2] || '[Empty]'}</LyricBox>
-                <LyricBox>Line 4: {completedLines[3] || '[Empty]'}</LyricBox>
+                <LyricBox>{completedLines[0] || ''}</LyricBox>
+                <LyricBox>{completedLines[1] || ''}</LyricBox>
+                <LyricBox>{completedLines[2] || ''}</LyricBox>
+                <LyricBox>{completedLines[3] || ''}</LyricBox>
             </div>
         </Container>
     );
